@@ -1,0 +1,16 @@
+# Core Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# Database (SQLite only - no psycopg2!)
+sqlalchemy==2.0.23
+alembic==1.12.1
+
+# Configuration
+python-dotenv==1.0.0
+
+# Development
+pytest==7.4.3
+black==23.11.0
