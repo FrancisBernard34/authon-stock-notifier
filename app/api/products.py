@@ -40,6 +40,9 @@ def list_products(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)
         limit = 100
     return crud_product.get_products(db, skip=skip, limit=limit)
 
+@router.get("/low-stock", response_model=List[ProductResponse])
+def get_low_stock_products(db: Session = Depends(get_db)):
+    return crud_product.get_low_stock_products(db)
 
 @router.get("/{product_id}", response_model=ProductResponse)
 def get_product(product_id: int, db: Session = Depends(get_db)):

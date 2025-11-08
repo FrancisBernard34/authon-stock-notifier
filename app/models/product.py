@@ -37,9 +37,9 @@ class Product(Base):
     @property
     def is_low_stock(self) -> bool:
         """Check if the product stock is below the minimum threshold."""
-        return self.quantity < self.min_threshold
+        return bool(self.quantity < self.min_threshold)
 
     @property
     def is_out_of_stock(self) -> bool:
         """Check if the product is out of stock."""
-        return self.quantity <= 0
+        return bool(self.quantity <= 0)

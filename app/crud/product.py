@@ -81,3 +81,8 @@ def delete_product(db: Session, product_id: int) -> bool:
     db.delete(db_product)
     db.commit()
     return True
+
+def get_low_stock_products(db: Session) -> List[Product]:
+    return db.query(Product).filter(Product.quantity < Product.min_threshold).all()
+
+# verificar se existem produtos sem estoque
